@@ -7,6 +7,15 @@ project(reach VERSION 1.0
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0)
 
+include(ExternalProject)
+ExternalProject_Add(libvc
+	GIT_REPOSITORY https://github.com/libvc/libvc.git
+	 #--Update/Patch step----------
+  	UPDATE_COMMAND touch <SOURCE_DIR>/config.h COMMAND mkdir -p <SOURCE_DIR>/include <SOURCE_DIR>/lib    # Source work-tree update command
+	#--Configure step-------------
+	CONFIGURE_COMMAND autoreconf -f -i COMMAND ./configure --prefix=<INSTALL_DIR>
+	BUILD_IN_SOURCE 1        # Use source dir for build dir
+	INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}"  )
 
 link_directories(${GTKMM_LIBRARY_DIRS})
 
