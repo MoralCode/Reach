@@ -15,8 +15,8 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 	
 
 add_executable(reach 
-	src/main.cc
-	src/helloworld.cc
+	src/main.cpp
+	src/helloworld.cpp
 	src/helloworld.h )
 target_link_libraries(reach ${GTKMM_LIBRARIES})
 target_compile_features(reach PRIVATE cxx_std_11)
