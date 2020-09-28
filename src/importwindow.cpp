@@ -1,7 +1,8 @@
 #include "importwindow.h"
 #include <fstream>
 #include <iostream>
-
+#include <cstdio>
+#include "vc.h"
 
 ImportWindow::ImportWindow()
 	: m_ButtonBox(Gtk::ORIENTATION_VERTICAL), m_Button_File("Choose File"),
@@ -97,6 +98,9 @@ void ImportWindow::on_button_file_clicked() {
 		std::string filename = dialog.get_filename();
 		std::cout << "File selected: " << filename << std::endl;
 
+		FILE *fptr;
+		fptr = fopen(filename.c_str(), "r");
+		vc_component* component = parse_vcard_file(fptr);
 		break;
 	}
 	case (Gtk::RESPONSE_CANCEL): {
