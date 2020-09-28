@@ -10,6 +10,7 @@ pkg_check_modules(GTKMM gtkmm-3.0)
 include(ExternalProject)
 ExternalProject_Add(libvc
 	GIT_REPOSITORY https://github.com/libvc/libvc.git
+	GIT_TAG 4f79cf94d6fce163e3e012939c83b4b395a832f1
 	 #--Update/Patch step----------
   	UPDATE_COMMAND touch <SOURCE_DIR>/config.h COMMAND mkdir -p <SOURCE_DIR>/include <SOURCE_DIR>/lib    # Source work-tree update command
 	#--Configure step-------------
