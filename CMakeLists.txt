@@ -8,7 +8,7 @@ find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0)
 
 include(ExternalProject)
-ExternalProject_Add(libvc
+ExternalProject_Add(project_libvc
 	GIT_REPOSITORY https://github.com/libvc/libvc.git
 	GIT_TAG 4f79cf94d6fce163e3e012939c83b4b395a832f1
 	 #--Update/Patch step----------
@@ -24,9 +24,19 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 
 	
 
+ExternalProject_Get_Property(project_libvc install_dir)
+
+add_library(libvc STATIC IMPORTED)
+
+
+set_property(TARGET libvc PROPERTY IMPORTED_LOCATION ${install_dir}/libvc-prefix/src/libvc/src/.libs/libvc.a)
+
+add_dependencies(libvc project_libvc)
+
 add_executable(reach 
 	src/main.cpp
 	src/importwindow.cpp
 	src/importwindow.h )
-target_link_libraries(reach ${GTKMM_LIBRARIES})
+target_link_libraries(reach ${GTKMM_LIBRARIES} libvc)
+include_directories(${install_dir}/libvc-prefix/src/libvc/src/.libs/)
 target_compile_features(reach PRIVATE cxx_std_11)
