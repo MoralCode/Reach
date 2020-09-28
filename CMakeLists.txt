@@ -37,6 +37,10 @@ add_executable(reach
 	src/main.cpp
 	src/importwindow.cpp
 	src/importwindow.h )
+
+target_compile_options(reach PRIVATE -Wall)
+target_compile_options(reach PRIVATE -Wextra)
+
 target_link_libraries(reach ${GTKMM_LIBRARIES} libvc)
 include_directories(${install_dir}/libvc-prefix/src/libvc/src/.libs/)
 target_compile_features(reach PRIVATE cxx_std_11)
