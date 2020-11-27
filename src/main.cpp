@@ -1,3 +1,5 @@
+#include <gtkmm/application.h>
+#include <gtkmm/window.h>
 #include <gtkmm.h>
 #include <iostream>
 
@@ -14,7 +16,7 @@ void on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
 	auto refBuilder = Gtk::Builder::create();
 	try {
-		refBuilder->add_from_file("reach.glade");
+		refBuilder->add_from_file("basic.glade", "DialogBasic");
 	} catch (const Glib::FileError &ex) {
 		std::cerr << "FileError: " << ex.what() << std::endl;
 		return;
@@ -27,14 +29,17 @@ void on_app_activate() {
 	}
 
 	// Get the GtkBuilder-instantiated dialog:
-	pDialog = refBuilder->get_widget<Gtk::Dialog>("DialogBasic");
+	refBuilder->get_widget<Gtk::Dialog>("DialogBasic", pDialog);
+	
 	if (!pDialog) {
 		std::cerr << "Could not get the dialog" << std::endl;
 		return;
 	}
 
 	// Get the GtkBuilder-instantiated button, and connect a signal handler:
-	auto pButton = refBuilder->get_widget<Gtk::Button>("quit_button");
+	Gtk::Button* pButton = nullptr;
+	refBuilder->get_widget<Gtk::Button>("quit_button", pButton);
+
 	if (pButton)
 		pButton->signal_clicked().connect([]() { on_button_clicked(); });
 
