@@ -35,7 +35,7 @@ void on_app_activate() {
 		std::cerr << "Could not get the dialog" << std::endl;
 		return;
 	}
-
+	window->set_title("Reach");
 	// Get the GtkBuilder-instantiated button, and connect a signal handler:
 	Gtk::Button* pButton = nullptr;
 	refBuilder->get_widget<Gtk::Button>("quit_button", pButton);
