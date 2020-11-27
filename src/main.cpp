@@ -4,19 +4,19 @@
 #include <iostream>
 
 namespace {
-Gtk::Dialog *pDialog = nullptr;
+Gtk::ApplicationWindow *window = nullptr;
 Glib::RefPtr<Gtk::Application> app;
 
 void on_button_clicked() {
-	if (pDialog)
-		pDialog->hide(); // hide() will cause Gtk::Application::run() to end.
+	if (window)
+		window->hide(); // hide() will cause Gtk::Application::run() to end.
 }
 
 void on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
 	auto refBuilder = Gtk::Builder::create();
 	try {
-		refBuilder->add_from_file("basic.glade", "DialogBasic");
+		refBuilder->add_from_file("reach.glade", "ReachWindow");
 	} catch (const Glib::FileError &ex) {
 		std::cerr << "FileError: " << ex.what() << std::endl;
 		return;
@@ -29,9 +29,9 @@ void on_app_activate() {
 	}
 
 	// Get the GtkBuilder-instantiated dialog:
-	refBuilder->get_widget<Gtk::Dialog>("DialogBasic", pDialog);
-	
-	if (!pDialog) {
+	refBuilder->get_widget<Gtk::ApplicationWindow>("ReachWindow", window);
+
+	if (!window) {
 		std::cerr << "Could not get the dialog" << std::endl;
 		return;
 	}
@@ -45,10 +45,10 @@ void on_app_activate() {
 
 	// It's not possible to delete widgets after app->run() has returned.
 	// Delete the dialog with its child widgets before app->run() returns.
-	pDialog->signal_hide().connect([]() { delete pDialog; });
+	window->signal_hide().connect([]() { delete window; });
 
-	app->add_window(*pDialog);
-	pDialog->show();
+	app->add_window(*window);
+	window->show();
 }
 } // anonymous namespace
 
