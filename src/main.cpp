@@ -37,11 +37,11 @@ void on_app_activate() {
 	}
 	window->set_title("Reach");
 	// Get the GtkBuilder-instantiated button, and connect a signal handler:
-	Gtk::Button* pButton = nullptr;
-	refBuilder->get_widget<Gtk::Button>("quit_button", pButton);
+	Gtk::ImageMenuItem *pButton = nullptr;
+	refBuilder->get_widget<Gtk::ImageMenuItem>("quit_button", pButton);
 
 	if (pButton)
-		pButton->signal_clicked().connect([]() { close_hide_window(); });
+		pButton->signal_activate().connect([]() { close_hide_window(); });
 
 	// It's not possible to delete widgets after app->run() has returned.
 	// Delete the dialog with its child widgets before app->run() returns.
