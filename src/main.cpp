@@ -7,7 +7,7 @@ namespace {
 Gtk::ApplicationWindow *window = nullptr;
 Glib::RefPtr<Gtk::Application> app;
 
-void on_button_clicked() {
+void close_hide_window() {
 	if (window)
 		window->hide(); // hide() will cause Gtk::Application::run() to end.
 }
@@ -41,7 +41,7 @@ void on_app_activate() {
 	refBuilder->get_widget<Gtk::Button>("quit_button", pButton);
 
 	if (pButton)
-		pButton->signal_clicked().connect([]() { on_button_clicked(); });
+		pButton->signal_clicked().connect([]() { close_hide_window(); });
 
 	// It's not possible to delete widgets after app->run() has returned.
 	// Delete the dialog with its child widgets before app->run() returns.
