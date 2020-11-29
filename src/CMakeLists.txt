@@ -6,8 +6,8 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 
 add_executable(${CMAKE_PROJECT_NAME} 
 	main.cpp
-	importwindow.cpp
-	importwindow.h )
+	gui.h
+	gui.cpp )
 
 configure_file(reach.glade . COPYONLY)
 
