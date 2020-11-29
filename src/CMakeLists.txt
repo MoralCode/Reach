@@ -4,10 +4,11 @@ link_directories(${GTKMM_LIBRARY_DIRS})
 
 include_directories(${GTKMM_INCLUDE_DIRS})
 
-add_executable(${CMAKE_PROJECT_NAME} 
-	main.cpp
-	gui.h
-	gui.cpp )
+file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
+
+set(SOURCES ${SOURCES})
+
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
 
 configure_file(reach.glade . COPYONLY)
 
