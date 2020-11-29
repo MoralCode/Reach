@@ -26,12 +26,9 @@ void ReachGUI::close_hide_window() {
 
 void ReachGUI::on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
-	auto refBuilder = Gtk::Builder::create();
+	auto refBuilder = Gtk::Builder::create_from_resource("reach.glade");
 	try {
 		refBuilder->add_from_file("reach.glade", "ReachWindow");
-	} catch (const Glib::FileError &ex) {
-		std::cerr << "FileError: " << ex.what() << std::endl;
-		return;
 	} catch (const Glib::MarkupError &ex) {
 		std::cerr << "MarkupError: " << ex.what() << std::endl;
 		return;
