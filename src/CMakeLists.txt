@@ -44,8 +44,8 @@ add_custom_command(
 
 # create a custom target for the generated ui resources
 add_custom_target(
-    ui-resource
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
+	ui-resource
+	DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
 )
 
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
@@ -56,8 +56,8 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/${GR
 
 # Tell CMAKE that that resource c file is generated
 set_source_files_properties(
-    ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
-    PROPERTIES GENERATED TRUE
+	${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
+	PROPERTIES GENERATED TRUE
 )
 
 configure_file(reach.glade . COPYONLY)
