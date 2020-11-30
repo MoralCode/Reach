@@ -1,8 +1,8 @@
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0)
-link_directories(${GTKMM_LIBRARY_DIRS})
+link_directories(${GTKMM_LIBRARY_DIRS} ${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories(${GTKMM_INCLUDE_DIRS})
+include_directories(${GTKMM_INCLUDE_DIRS}${CMAKE_CURRENT_BINARY_DIR})
 
 # find the command to generate the custom resources
 find_program(GLIB_COMPILE_RESOURCES NAMES glib-compile-resources REQUIRED)
