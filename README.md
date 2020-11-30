@@ -7,7 +7,7 @@ A contacts app im trying to make to teach myself C++ and GTK using GTKMM
 dependencies:
 - https://github.com/libvc/libvc
 - `libconfig++-dev` (https://hyperrealm.github.io/libconfig/)
-- 
+- libglibmm-2.4-dev
 
 
 then to compile:
