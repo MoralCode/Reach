@@ -80,10 +80,16 @@ set_source_files_properties(
 	PROPERTIES GENERATED TRUE
 )
 
+# also make a static library for the unit tests to link to
+add_library(${CMAKE_PROJECT_NAME}_lib STATIC ${SOURCES})
+
+
 configure_file(reach.glade . COPYONLY)
 
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wextra)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${GTKMM_LIBRARIES} ${GLIBMM_LIBRARIES} resources vc config++)
+target_link_libraries(${CMAKE_PROJECT_NAME}_lib ${GTKMM_LIBRARIES} vc config++)
+
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)

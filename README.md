@@ -8,6 +8,8 @@ dependencies:
 - https://github.com/libvc/libvc
 - `libconfig++-dev` (https://hyperrealm.github.io/libconfig/)
 - libglibmm-2.4-dev
+- gtest and gmock
+
 
 
 then to compile:
