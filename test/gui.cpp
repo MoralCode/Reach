@@ -1,4 +1,5 @@
 #include <gtkmm.h>
+#include <string>
 #include "gui.h"
 
 #include "gtest/gtest.h"
@@ -12,10 +13,10 @@ protected:
 	// would be empty.
 	G::ReachGUI gui;
 
-	ReachGUITest() {
-		// You can do set-up work for each test here.
-		gui = ReachGUI("com.adriancedwards.reach.test");
-	}
+	// ReachGUITest(std::string appid) {
+	// 	// You can do set-up work for each test here.
+	// 	gui = ReachGUI(appid);
+	// }
 
 	~ReachGUITest() override {
 		// You can do clean-up work that doesn't throw exceptions here.
@@ -27,6 +28,8 @@ protected:
 	void SetUp() override {
 		// Code here will be called immediately after the constructor (right
 		// before each test).
+
+		// "com.adriancedwards.reach.test"
 	}
 
 	void TearDown() override {
@@ -47,8 +50,8 @@ protected:
 // 	EXPECT_EQ(f.Bar(input_filepath, output_filepath), 0);
 // }
 
-TEST_F(ReachGUITest, SignalClosesAndHidesWindow) {
-	// gui::close_hide_window()
-}
+// TEST_F(ReachGUITest, SignalClosesAndHidesWindow) {
+// 	// gui::close_hide_window()
+// }
 
 } // namespace G
