@@ -1,8 +1,9 @@
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0)
-link_directories(${GTKMM_LIBRARY_DIRS} ${CMAKE_CURRENT_BINARY_DIR})
+pkg_check_modules(GLIBM glibmm-2.4)
+link_directories(${GTKMM_LIBRARY_DIRS} ${GLIBMM_LIBRARY_DIRS} ${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories(${GTKMM_INCLUDE_DIRS}${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${GTKMM_INCLUDE_DIRS} ${GLIBMM_INCLUDE_DIRS} ${CMAKE_CURRENT_BINARY_DIR})
 
 # find the command to generate the custom resources
 find_program(GLIB_COMPILE_RESOURCES NAMES glib-compile-resources REQUIRED)
@@ -83,5 +84,5 @@ configure_file(reach.glade . COPYONLY)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wextra)
 
-target_link_libraries(${CMAKE_PROJECT_NAME} ${GTKMM_LIBRARIES} vc config++)
+target_link_libraries(${CMAKE_PROJECT_NAME} ${GTKMM_LIBRARIES} ${GLIBMM_LIBRARIES} vc config++)
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
