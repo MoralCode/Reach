@@ -8,6 +8,7 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 find_program(GLIB_COMPILE_RESOURCES NAMES glib-compile-resources REQUIRED)
 
 set(GRESOURCE_C   ui.gresource.c)
+set(GRESOURCE_H   ui.gresource.h)
 set(GRESOURCE_XML ui.gresource.xml)
 set(GRESOURCE_XML_IN ui.gresource.xml.in)
 set(OLD ${CMAKE_CURRENT_SOURCE_DIR}/${GRESOURCE_XML_IN})
@@ -42,10 +43,23 @@ add_custom_command(
 	DEPENDS ${GRESOURCE_DEPENDENCIES}
 )
 
+add_custom_command(
+	OUTPUT ${GRESOURCE_H}
+	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+	COMMAND ${GLIB_COMPILE_RESOURCES}
+	ARGS
+		--generate-header
+		--target=${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_H}
+		${NEW}
+	VERBATIM
+	MAIN_DEPENDENCY ${NEW}
+	DEPENDS ${GRESOURCE_DEPENDENCIES}
+)
 # create a custom target for the generated ui resources
 add_custom_target(
 	ui-resource
 	DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
+	${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_H}
 )
 
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
@@ -57,6 +71,10 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/${GR
 # Tell CMAKE that that resource c file is generated
 set_source_files_properties(
 	${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C}
+	PROPERTIES GENERATED TRUE
+)
+set_source_files_properties(
+	${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_H}
 	PROPERTIES GENERATED TRUE
 )
 
