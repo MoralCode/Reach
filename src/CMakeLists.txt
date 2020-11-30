@@ -68,7 +68,7 @@ file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
 set(SOURCES ${SOURCES})
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCES} )
-add_library(resources SHARED ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C})
+add_library(resources SHARED ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_C} ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_H})
 
 # Tell CMAKE that that resource c file is generated
 set_source_files_properties(
