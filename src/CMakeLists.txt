@@ -80,6 +80,7 @@ set_source_files_properties(
 	PROPERTIES GENERATED TRUE
 )
 
+configure_file(reach.glade . COPYONLY)
 
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wextra)
