@@ -1,4 +1,4 @@
-#include "gui.h"
+#include "ui/gui.h"
 #include <libconfig.h++>
 extern "C" {
 #include "ui.gresource.h"
