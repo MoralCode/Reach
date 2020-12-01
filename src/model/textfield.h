@@ -13,7 +13,7 @@ public:
 	string label;
 	string value;
 
-	TextField(string type, string label, string value);
+	TextField(string type, string label, string value, string format);
 
 	bool validate();
 
