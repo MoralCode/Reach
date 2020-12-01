@@ -11,7 +11,7 @@ find_program(GLIB_COMPILE_RESOURCES NAMES glib-compile-resources REQUIRED)
 set(GRESOURCE_C   ui.gresource.c)
 set(GRESOURCE_H   ui.gresource.h)
 set(GRESOURCE_XML ui.gresource.xml)
-set(GRESOURCE_XML_IN ui.gresource.xml.in)
+set(GRESOURCE_XML_IN resources/ui.gresource.xml.in)
 set(OLD ${CMAKE_CURRENT_SOURCE_DIR}/${GRESOURCE_XML_IN})
 set(NEW ${CMAKE_CURRENT_BINARY_DIR}/${GRESOURCE_XML})
 
@@ -29,6 +29,8 @@ if(NOT EXISTS ${NEW} OR (${OLD} IS_NEWER_THAN ${NEW}))
 	string(REPLACE "\n" ";" GRESOURCE_DEPENDENCIES ${GRESOURCE_DEPENDENCIES})
 	list(POP_BACK GRESOURCE_DEPENDENCIES)
 endif()
+
+file(COPY ${GRESOURCE_DEPENDENCIES} DESTINATION resources/)
 
 # set up the command to generate the custom resources
 add_custom_command(
@@ -84,7 +86,6 @@ set_source_files_properties(
 add_library(${CMAKE_PROJECT_NAME}_lib STATIC ${SOURCES})
 
 
-configure_file(reach.glade . COPYONLY)
 
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall)
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wextra)
