@@ -1,21 +1,28 @@
 # Reach
 
-A contacts app im trying to make to teach myself C++ and GTK using GTKMM
+A learning project to create a contacts for linux using C++ and gtkmm.
 
 ## Building
 
-dependencies:
+### Install Dependencies
+main application dependencies:
 - https://github.com/libvc/libvc
 - `libconfig++-dev` (https://hyperrealm.github.io/libconfig/)
 - libglibmm-2.4-dev
+
+testing dependencies:
 - gtest and gmock
 
-
-
-then to compile:
+### Setup Build Directory
 ```
 mkdir build
 cd build
 cmake ..
-cmake --build .
 ```
+### Compile
+
+to compile everything, run `make`
+
+to compile just the app itself, run `make reach`
+
+to compile the tests, run `make test`
