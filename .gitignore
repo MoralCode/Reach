@@ -50,3 +50,6 @@ _deps
 
 # reach stuff
 build/
+
+# ignore backup files for glade
+*.glade~
