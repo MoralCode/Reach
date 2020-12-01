@@ -28,7 +28,7 @@ void ReachGUI::on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
 	auto refBuilder = Gtk::Builder::create();
 	try {
-		refBuilder = Gtk::Builder::create_from_resource("/ui/reach.glade");
+		refBuilder = Gtk::Builder::create_from_resource("/ui/resources/reach.glade");
 	} catch (const Glib::MarkupError &ex) {
 		std::cerr << "MarkupError: " << ex.what() << std::endl;
 		return;
