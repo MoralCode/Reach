@@ -7,16 +7,15 @@
 namespace G {
 
 // The fixture for testing class ReachGUI.
-class ReachGUITest : public ::testing::Test {
+class ReachGUITest : public ::testing::Test, public ReachGUI {
 protected:
 	// You can remove any or all of the following functions if their bodies
 	// would be empty.
 	G::ReachGUI gui;
 
-	// ReachGUITest(std::string appid) {
-	// 	// You can do set-up work for each test here.
-	// 	gui = ReachGUI(appid);
-	// }
+	ReachGUITest() : ReachGUI("com.adriancedwards.reach.test") {
+		// You can do set-up work for each test here.
+	}
 
 	~ReachGUITest() override {
 		// You can do clean-up work that doesn't throw exceptions here.
