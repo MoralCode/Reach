@@ -1,6 +1,6 @@
+#include "ui/gui.h"
 #include <gtkmm.h>
 #include <string>
-#include "gui.h"
 
 #include "gtest/gtest.h"
 
