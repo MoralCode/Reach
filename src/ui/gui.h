@@ -10,7 +10,6 @@ namespace G {
 		// virtual ~ReachGUI();
 		Glib::RefPtr<Gtk::Application> app;
 
-	protected:
 		// Signal handlers:
 		void close_hide_window();
 		void on_app_activate();
