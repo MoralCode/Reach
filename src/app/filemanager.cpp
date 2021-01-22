@@ -6,7 +6,7 @@
 using namespace A;
 using namespace libconfig;
 
-FileManager::FileManager(std::string path = "db") {
+FileManager::FileManager(std::string path = "db") : db_root_path(path) {
 	setup_metadata();
 }
 
