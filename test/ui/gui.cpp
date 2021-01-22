@@ -11,7 +11,7 @@ class ReachGUITest : public ::testing::Test, public ReachGUI {
 protected:
 	// You can remove any or all of the following functions if their bodies
 	// would be empty.
-	G::ReachGUI gui;
+	G::ReachGUI *gui;
 
 	ReachGUITest() : ReachGUI("com.adriancedwards.reach.test") {
 		// You can do set-up work for each test here.
@@ -19,6 +19,7 @@ protected:
 
 	~ReachGUITest() override {
 		// You can do clean-up work that doesn't throw exceptions here.
+		delete gui;
 	}
 
 	// If the constructor and destructor are not enough for setting up
@@ -49,8 +50,8 @@ protected:
 // 	EXPECT_EQ(f.Bar(input_filepath, output_filepath), 0);
 // }
 
-// TEST_F(ReachGUITest, SignalClosesAndHidesWindow) {
-// 	// gui::close_hide_window()
-// }
+TEST_F(ReachGUITest, SignalClosesAndHidesWindow) {
+	close_hide_window();
+}
 
 } // namespace G
