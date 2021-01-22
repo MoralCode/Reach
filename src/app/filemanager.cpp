@@ -1,6 +1,5 @@
 #include "filemanager.h"
 #include <iostream>
-#include <libconfig.h++>
 
 #define CONFIG_FILENAME "reach.cfg"
 

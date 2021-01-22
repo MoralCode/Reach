@@ -1,9 +1,11 @@
 #ifndef REACH_FILEMANAGER_H
 #define REACH_FILEMANAGER_H
+#include <libconfig.h++>
 #include <string>
 #include <vector>
 
 using namespace std;
+using namespace libconfig;
 
 namespace A {
 class FileManager {
