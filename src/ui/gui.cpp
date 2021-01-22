@@ -24,6 +24,16 @@ void ReachGUI::close_hide_window() {
 		window->hide(); // hide() will cause Gtk::Application::run() to end.
 }
 
+void ReachGUI::on_import() {
+	//TODO: Get a reference to and call the Contactsmanager class
+	importw_ = new ImportWindow;
+	importw_->signal_hide().connect(
+		sigc::mem_fun(*this, &ReachGUI::on_close_importwindow));
+	importw_->show();
+}
+
+void ReachGUI::on_close_importwindow() { importw_ = 0; }
+
 void ReachGUI::on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
 	auto refBuilder = Gtk::Builder::create();

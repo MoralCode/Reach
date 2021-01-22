@@ -1,5 +1,6 @@
 #ifndef GTKMM_GUI_H
 #define GTKMM_GUI_H
+#include "importwindow.h"
 #include <gtkmm.h>
 #include <gtkmm/application.h>
 
@@ -13,11 +14,11 @@ namespace G {
 		// Signal handlers:
 		void close_hide_window();
 		void on_app_activate();
+		void on_close_importwindow();
+		void on_import();
 
-	// 	// Child widgets:
-	// 	// Gtk::ButtonBox m_ButtonBox;
-	// 	// Gtk::Button m_Button_File, m_Button_Folder;
-
+		ImportWindow *importw_;
+		
 	};
 } // namespace G
 
