@@ -26,3 +26,9 @@ to compile everything, run `make`
 to compile just the app itself, run `make reach`
 
 to compile the tests, run `make test`
+
+## Testing
+
+Tests are currently very early stages as I am still trying to figure out how to go about correctly testing a GTK+ app.
+
+https://gitlab.com/dogtail/dogtail/ seems good if UI tests are needed. Still not sure if signal handlers should be tested though
