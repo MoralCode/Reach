@@ -66,8 +66,7 @@ void ReachGUI::on_app_activate() {
 	Gtk::Button *newContactButton = nullptr;
 	refBuilder->get_widget<Gtk::Button>("new_contact_button", newContactButton);
 	if (newContactButton)
-		newButton->signal_clicked().connect([this]() { on_import(); });
-
+		newContactButton->signal_clicked().connect([this]() { on_import(); });
 
 	// It's not possible to delete widgets after app->run() has returned.
 	// Delete the dialog with its child widgets before app->run() returns.
