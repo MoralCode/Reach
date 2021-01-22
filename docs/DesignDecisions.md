@@ -20,7 +20,7 @@ Reach uses Glib's `Resource` feature to effectively compile the .glade file into
 ### Application Tier
 
 #### Database
-The current plan is to just use a directory of `.vcf` files for simplicity. This means theres less overhead of having to deal with databases while things are laid out. In future there may arise a need to use a database of some kind.
+The current plan is to just use a directory of `.vcf` files for simplicity. This means theres less overhead of having to deal with databases while things are laid out. In future there may arise a need to use a database of some kind, i.e. for searching for a contact.
 
 
 ##### Future Plans
@@ -31,6 +31,9 @@ Another perk of using an ORM is that it makes it easier to swap out the underlyi
 
 ### Model Tier
 
+
+### Libraries used
+I remember doing a bunch of reserach on config file parsers and for some reason ended up settling on [libconfig](https://hyperrealm.github.io/libconfig/). I think part of that decision was support for pre C++11 stuff but im not sure if I stopped caring about that before or after instlaling this. 
 
 ## Testing
 ### Unit Testing
