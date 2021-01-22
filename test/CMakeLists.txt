@@ -9,7 +9,7 @@ link_directories(${GTKMM_LIBRARY_DIRS})
 
 
 include_directories(${GTKMM_INCLUDE_DIRS})
-file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
+file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES true *.h *.cpp)
 
 
 set(SOURCES ${TEST_SOURCES})
@@ -23,20 +23,9 @@ include_directories(
 
 add_executable(${CMAKE_PROJECT_NAME}_test ${TEST_SOURCES})
 
-target_link_libraries(${CMAKE_PROJECT_NAME}_test ${GTKMM_LIBRARIES} ${GTEST_LDFLAGS} ${GMOCK_LDFLAGS})
+target_link_libraries(${CMAKE_PROJECT_NAME}_test ${CMAKE_PROJECT_NAME}_lib ${GTKMM_LIBRARIES} ${GTEST_LDFLAGS} ${GMOCK_LDFLAGS})
 target_compile_options(${CMAKE_PROJECT_NAME}_test PUBLIC ${GTEST_CFLAGS} ${GMOCK_CFLAGS})
 
 include(CTest)
 add_test(first_and_only_test ${CMAKE_PROJECT_NAME}_test)
 
-
-
-# file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
-
-# set(SOURCES ${TEST_SOURCES})
-
-# add_executable(${BINARY} ${TEST_SOURCES})
-
-# add_test(NAME ${BINARY} COMMAND ${BINARY})
-
-# target_link_libraries(${BINARY} PUBLIC ${CMAKE_PROJECT_NAME}_lib gtest)
