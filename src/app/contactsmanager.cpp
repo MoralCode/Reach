@@ -3,6 +3,7 @@
 using namespace A;
 
 ContactsManager::ContactsManager() { 
+	fileManager = new FileManager();
 	// query file manager for a list of all contacts
 	//parse all contacts into components
 	//store those in memory

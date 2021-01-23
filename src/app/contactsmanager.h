@@ -19,7 +19,7 @@ public:
 	void delete_contact();
 
 private:
-	FileManager fileManager;
+	FileManager *fileManager;
 	vector <vc_component *> contactList;
 };
 } // namespace A
