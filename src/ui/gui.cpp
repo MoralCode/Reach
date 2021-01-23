@@ -31,8 +31,9 @@ void ReachGUI::on_import() {
 
 void ReachGUI::show_contact(Contact *contact) {
 
-	std::string fullName = contact->find_field("FN")->getValue();
-	set_contact_name(fullName);
+	Field *fullName = nullptr;
+	contact->find_field_by_type("FN", fullName);
+	set_contact_name(fullName->getValue());
 }
 
 void ReachGUI::set_contact_name(std::string name) {
