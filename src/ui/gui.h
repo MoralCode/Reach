@@ -25,6 +25,7 @@ namespace G {
 		void set_contact_name(string name);
 		void set_contact_photo();
 
+		Glib::RefPtr<Gtk::Builder> refBuilder;
 	};
 } // namespace G
 

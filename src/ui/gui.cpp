@@ -50,7 +50,7 @@ void ReachGUI::on_close_importwindow() { importw_ = 0; }
 
 void ReachGUI::on_app_activate() {
 	// Load the GtkBuilder file and instantiate its widgets:
-	auto refBuilder = Gtk::Builder::create();
+	refBuilder = Gtk::Builder::create();
 	try {
 		refBuilder = Gtk::Builder::create_from_resource("/ui/resources/reach.glade");
 	} catch (const Glib::MarkupError &ex) {
