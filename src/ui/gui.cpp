@@ -29,7 +29,7 @@ void ReachGUI::on_import() {
 	importw_->show();
 }
 
-void ReachGUI::show_contact(Contact contact) {
+void ReachGUI::show_contact(Contact *contact) {
 
 	std::string fullName = contact->find_field("FN")->getValue();
 	set_contact_name(fullName);

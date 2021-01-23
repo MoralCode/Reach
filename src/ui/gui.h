@@ -11,7 +11,7 @@ namespace G {
 		ReachGUI(std::string appid);
 		// virtual ~ReachGUI();
 		Glib::RefPtr<Gtk::Application> app;
-		void show_contact(Contact contact);
+		void show_contact(Contact *contact);
 
 		// Signal handlers:
 		void close_hide_window();

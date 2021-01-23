@@ -11,6 +11,6 @@ void Contact::add_field(Field field) {
 
 }
 
-void Contact::find_field_by_type(string vc_type) {
+void Contact::find_field_by_type(string vc_type, Field *fieldPtr) {
 
 }

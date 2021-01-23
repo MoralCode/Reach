@@ -11,7 +11,7 @@ public:
 	Contact();
 	// virtual ~Contact();
 	void add_field(Field field);
-	void find_field_by_type(string vc_type);
+	void find_field_by_type(string vc_type, Field *fieldPtr);
 
 private:
 	vector<Field> fields;
