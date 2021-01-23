@@ -11,6 +11,7 @@ namespace A {
 class FileManager {
 	//manages the on-disk file structure of the contacts as a sort of DIY database
 public:
+	FileManager();
 	FileManager(string path);
 	// virtual ~FileManager();
 	FILE * get_file(string filename);
