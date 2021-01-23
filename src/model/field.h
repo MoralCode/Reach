@@ -14,6 +14,9 @@ public:
 	string value;
 
 	Field(string type, string label, string value);
+	string getValue();
+	string getLabel();
+	string getType();
 };
 
 #endif
