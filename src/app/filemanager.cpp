@@ -25,6 +25,6 @@ void FileManager::setup_metadata() {
 	}
 }
 
-vector<string> list_filenames() {
+vector<string> FileManager::list_filenames() {
 	// http://www.martinbroadhurst.com/list-the-files-in-a-directory-in-c.html
 }
