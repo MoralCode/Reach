@@ -15,6 +15,7 @@ public:
 	ContactsManager();
 	// virtual ~ContactsManager();
 	void add_contact(Contact *contact);
+	void import_contact(string filename);
 	void save_contact();
 	void load_contact();
 	void delete_contact();
