@@ -13,6 +13,8 @@ version 3.10 was selected for the .glade file because it works and is apparrentl
 
 > The package names will not change when new API/ABI-compatible versions of gtkmm are released. Otherwise they would not be API/ABI-compatible. So don't be surprised, for instance, to find gtkmm 3.8 supplied by Debian's libgtkmm-3.0-dev package. 
 
+Despite using an MVC pattern, I'm not sure how it should be structured. Does the UI Tier/View code need to be passed a reference to an Application Tier/Controller Class so it can fetch a contact to display it? How should UI tier to pass an identifier of what contact name was clicked on from the list up to the application tier so the application tier can tell it to display a particular contact. Both of these require a reference to the application tier in the UI tier, which seems sorta questionable to me, although i guess it makes sense since the point of the app tier is to connect the model and UI tiers?
+
 #### Packing into a resource file
 
 Reach uses Glib's `Resource` feature to effectively compile the .glade file into the app itself so as not to require any additional files to be installed alongside the binary. this resource is then fetched and registered as global in `main.cpp` so that it is available to use when `gui.cpp` calls `create_from_resource` to create the `Gtk::Builder` object. Admittedly this was a fairly arbitrary decision thats more down to developer preference than anything else.
