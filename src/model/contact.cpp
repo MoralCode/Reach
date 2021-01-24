@@ -7,7 +7,14 @@ Contact::Contact() {
 	
 }
 
-void Contact::add_field(Field field) {
+Contact::Contact(vc_component *component) {
+	
+	vc_component *next = vc_get_next(component);
+
+	while (next) {
+		add_field(new Field(next));
+		next = vc_get_next(next);
+	}
 
 }
 
