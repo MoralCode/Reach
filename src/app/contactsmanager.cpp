@@ -9,8 +9,14 @@ ContactsManager::ContactsManager() {
 	//store those in memory
 }
 
+void ContactsManager::add_contact(Contact *contact){
+	std::cout << "done." << std::endl;
+	Field* f;
+	// exception
+	contact->find_field_by_type("FN", f);
+	std::cout << f->getValue() << std::endl;
+}
 
-void add_contact();
 void save_contact();
 void load_contact();
 void delete_contact();

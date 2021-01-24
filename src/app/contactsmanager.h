@@ -1,6 +1,7 @@
 #ifndef REACH_CONTACTSMANAGER_H
 #define REACH_CONTACTSMANAGER_H
 #include "filemanager.h"
+#include "model/contact.h"
 #include <string>
 #include <vc.h>
 #include <vector>
@@ -13,7 +14,7 @@ class ContactsManager {
 public:
 	ContactsManager();
 	// virtual ~ContactsManager();
-	void add_contact();
+	void add_contact(Contact *contact);
 	void save_contact();
 	void load_contact();
 	void delete_contact();
