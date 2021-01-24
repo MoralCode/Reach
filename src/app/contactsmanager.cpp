@@ -29,6 +29,6 @@ void ContactsManager::add_contact(Contact *contact){
 	std::cout << f->getValue() << std::endl;
 }
 
-void save_contact();
-void load_contact();
-void delete_contact();
+void ContactsManager::save_contact();
+void ContactsManager::load_contact();
+void ContactsManager::delete_contact();
