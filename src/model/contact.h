@@ -12,7 +12,7 @@ public:
 	Contact();
 	Contact(vc_component *component);
 	// virtual ~Contact();
-	void add_field(Field field);
+	void add_field(Field *field);
 	void find_field_by_type(string vc_type, Field *fieldPtr);
 
 private:
