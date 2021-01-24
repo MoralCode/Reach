@@ -4,9 +4,9 @@
 #include <cstdio>
 #include <vc.h>
 
-ImportWindow::ImportWindow()
+ImportWindow::ImportWindow(A::ContactsManager *cm)
 	: m_ButtonBox(Gtk::ORIENTATION_VERTICAL), m_Button_File("Choose File"),
-	  m_Button_Folder("Choose Folder") {
+	  m_Button_Folder("Choose Folder"), contactsManager(cm) {
 	set_title("Gtk::FileSelection example");
 
 	add(m_ButtonBox);

@@ -3,7 +3,7 @@
 
 using namespace G;
 
-ReachGUI::ReachGUI(std::string appid) {
+ReachGUI::ReachGUI(std::string appid, A::ContactsManager *contactsManager): contacts(contactsManager) {
 
 	app = Gtk::Application::create(appid);
 
@@ -23,7 +23,7 @@ void ReachGUI::close_hide_window() {
 
 void ReachGUI::on_import() {
 	//TODO: Get a reference to and call the Contactsmanager class
-	importw_ = new ImportWindow;
+	importw_ = new ImportWindow(contacts);
 	importw_->signal_hide().connect(
 		sigc::mem_fun(*this, &ReachGUI::on_close_importwindow));
 	importw_->show();

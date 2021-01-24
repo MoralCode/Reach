@@ -13,7 +13,7 @@ protected:
 	// would be empty.
 	G::ReachGUI *gui;
 
-	ReachGUITest() : ReachGUI("com.adriancedwards.reach.test") {
+	ReachGUITest() : ReachGUI("com.adriancedwards.reach.test", new A::ContactsManager()) {
 		// You can do set-up work for each test here.
 	}
 
